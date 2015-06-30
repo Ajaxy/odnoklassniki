@@ -8,7 +8,7 @@ module Odnoklassniki
       Config::VALID_OPTIONS_KEYS.each do |key|
         instance_variable_set("@#{key}".to_sym, attrs[key])
       end
-      @refreshed = false
+      @refreshed = @access_token.present?
     end
 
     def get(method, params={}, &block)
